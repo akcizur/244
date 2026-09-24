@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+:root {
+  --bg-dark: #07090e;
+  --panel-dark: rgba(15, 18, 25, 0.65);
+  --border-dark: rgba(255, 255, 255, 0.14);
+  --text-dark: #f9fafb;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  background: var(--bg-dark);
+  font-family: -apple-system, BlinkMacSystemFont, "Plus Jakarta Sans", system-ui, sans-serif;
+  touch-action: none;
+  user-select: none;
+}
+
+/* Glass Blur Monochromatic Panels */
+.glass-mono {
+  background: rgba(10, 12, 16, 0.60);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  color: #f4f4f5;
+}
+
+.glass-mono-subtle {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  color: #f4f4f5;
+}
+
+.glass-mono-dropdown {
+  background: rgba(8, 10, 14, 0.85);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  color: #f4f4f5;
+}
+
+/* Monochromatic Reticle / Crosshair */
+.crosshair {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: #ffffff;
+  pointer-events: none;
+  z-index: 15;
+  box-shadow: 0 0 0 1.5px rgba(0, 0, 0, 0.7);
+}
+
+/* Auto Cursor Monochromatic Glass Reticle */
+.auto-cursor-reticle {
+  position: absolute;
+  pointer-events: none;
+  z-index: 20;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.12s ease-out;
+}
+
+.auto-cursor-ring {
+  width: 24px;
+  height: 24px;
+  border-radius: 9999px;
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.auto-cursor-ring.erase-mode {
+  border-color: rgba(255, 255, 255, 0.55);
+  border-style: dashed;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.auto-cursor-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 9999px;
+  background: #ffffff;
+}
+
+.auto-cursor-bracket {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+}
+
+/* Subtle fade & slide animations */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-scale {
+  animation: fadeInScale 0.15s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
